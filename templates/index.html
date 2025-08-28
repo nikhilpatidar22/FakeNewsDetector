@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detector</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to right, #ffeaa7, #fab1a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 450px;
+        }
+
+        h1 {
+            color: #e17055;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        textarea, input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #e17055;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #d35400;
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 25px;
+            color: #2d3436;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📰 Fake News Detector</h1>
+        <form method="post">
+            <textarea name="title" rows="4" placeholder="Enter news title" required></textarea>
+            <input type="number" name="tweet_num" placeholder="Number of tweets" required>
+            <input type="text" name="source_domain" placeholder="Source domain" required>
+            <button type="submit">Check News</button>
+        </form>
+
+        {% if result %}
+            <div class="result">Prediction: {{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
