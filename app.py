@@ -3,9 +3,9 @@ import joblib
 import pandas as pd
 import os
 app = Flask(__name__)
-
-
-model = joblib.load(".\\FN_model.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "FN_model.pkl")
+model = joblib.load(MODEL_PATH)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
